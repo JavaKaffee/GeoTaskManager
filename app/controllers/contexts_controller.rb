@@ -14,6 +14,7 @@ class ContextsController < ApplicationController
   # GET /contexts/1.json
   def show
     @context = Context.find(params[:id])
+    @tasks = Task.find_all_by_context_id(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

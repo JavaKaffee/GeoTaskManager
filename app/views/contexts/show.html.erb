@@ -1,11 +1,26 @@
-<div data-role="header">
+<div data-role="header" data-theme="b">
   <%= link_to 'Back', root_path, "data-icon" => "arrow-l", "data-rel" => "back" %>
   <h1><%= @context.name %></h1>
+  <script>
+    $(document).ready(function(){
+      initialize_existing_map();
+    });
+  </script>
+  <input type="hidden" id="latitude" value="<%= @context.latitude %>"/>
+  <input type="hidden" id="longitude" value="<%= @context.longitude %>"/>
+  <div id="existing_map_canvas" on data-role="fieldcontain" style="width:100%;height:50px;"></div>
 </div>
 
-<p id="notice"><%= notice %></p>
-
 <div data-role="content">
-  <%= @context.latitude %>
-  <%= @context.longitude %>
+  <% !notice.nil? do %>
+    <p id="notice"><%= notice %></p>
+  <% end %>
+  <ul data-role="listview" data-theme="c">
+    <% @tasks.each do |task| %>
+      <li>
+        <%= link_to task.name, context_task_path(@context,task) %>
+        <%= link_to 'edit task', edit_context_task_path(@context,task), "data-icon" => "gear" %>
+      </li>
+    <% end %>
+  </ul>
 </div>

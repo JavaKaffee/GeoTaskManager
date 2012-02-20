@@ -2,13 +2,15 @@
   <div data-role="navbar">
     <ul>
       <li><%= link_to 'Listen', root_path, "data-icon" => "grid", :class => "ui-btn-active ui-state-persist" %></li>
-      <li><%= link_to 'Heute', tasks_today_path %></li>
+      <li><%= link_to 'Heute', tasks_today_path, "data-icon" => "alert" %></li>
+      <li><%= link_to 'Hier', tasks_today_path, "data-icon" => "search" %></li>
+      <li><%= link_to 'Wichtig', tasks_today_path, "data-icon" => "star" %></li>
     </ul>
   </div>
 </div>
 
 <div data-role="content">
-  <ul data-role="listview" data-theme="a" data-counttheme="e">
+  <ul data-role="listview" data-theme="c" data-counttheme="e">
     <% @contexts.each do |context| %>
       <li>
         <%= link_to context.name, context %>
@@ -20,9 +22,9 @@
 </div>
 
 <div data-role="footer" data-position="fixed">		
-	<div data-role="navbar">
-		<ul>
-			<li><%= link_to 'Add', new_context_path, "data-icon" => "plus" %></li>
-		</ul>
-	</div><!-- /navbar -->
+  <div data-role="navbar">
+    <ul>
+      <li><%= link_to 'Add', new_context_path, "data-icon" => "plus" %></li>
+    </ul>
+  </div><!-- /navbar -->
 </div><!-- /footer -->

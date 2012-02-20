@@ -1,6 +1,6 @@
 <div data-role="header">
   <h1>Editing Context</h1>
-  <%= link_to 'Delete', @context, :method => :delete, "data-icon" => "delete", "class" => "ui-btn-right" %>
+  <%= link_to 'Delete', @context, confirm: 'Kontext löschen?', :method => :delete, "data-icon" => "delete", "class" => "ui-btn-right" %>
 </div>
 
 <div data-role="content">

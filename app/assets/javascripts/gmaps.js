@@ -3,7 +3,7 @@ function initialize_existing_map()
     if (document.getElementById("existing_map_canvas") != null) {
         var myLatlng = new google.maps.LatLng(parseFloat(document.getElementById('latitude').value),parseFloat(document.getElementById('longitude').value));
         var myOptions = {
-            zoom: 16,
+            zoom: 14,
             zoomControl: false,
             streetViewControl: false,
             mapTypeControl: false,
@@ -15,18 +15,6 @@ function initialize_existing_map()
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         var map = new google.maps.Map(document.getElementById("existing_map_canvas"), myOptions);
-        
-        var circleOptions = {
-          strokeColor: "#CC0000",
-          strokeOpacity: 0.8,
-          strokeWeight: 2,
-          fillColor: "#FFFF00",
-          fillOpacity: 0.15,
-          map: map,
-          center: map.center,
-          radius: 150
-        };
-        cityCircle = new google.maps.Circle(circleOptions);
         
         var image = '../assets/computers.png';
         var marker = new google.maps.Marker({
