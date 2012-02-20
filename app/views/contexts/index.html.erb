@@ -1,0 +1,28 @@
+<div data-role="header" data-position="fixed">
+  <div data-role="navbar">
+    <ul>
+      <li><%= link_to 'Listen', root_path, "data-icon" => "grid", :class => "ui-btn-active ui-state-persist" %></li>
+      <li><%= link_to 'Heute', tasks_today_path %></li>
+    </ul>
+  </div>
+</div>
+
+<div data-role="content">
+  <ul data-role="listview" data-theme="a" data-counttheme="e">
+    <% @contexts.each do |context| %>
+      <li>
+        <%= link_to context.name, context %>
+        <span class="ui-li-count"><%= Task.find_all_by_context_id(context.id).count %></span>
+        <%= link_to 'edit context', edit_context_path(context), "data-icon" => "gear" %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div data-role="footer" data-position="fixed">		
+	<div data-role="navbar">
+		<ul>
+			<li><%= link_to 'Add', new_context_path, "data-icon" => "plus" %></li>
+		</ul>
+	</div><!-- /navbar -->
+</div><!-- /footer -->

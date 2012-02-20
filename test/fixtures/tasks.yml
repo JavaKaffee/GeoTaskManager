@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  expiration: 2012-02-18 22:34:11
+  reminder: false
+  important: false
+  complete: false
+  note: MyText
+  context_id: 1
+
+two:
+  name: MyString
+  expiration: 2012-02-18 22:34:11
+  reminder: false
+  important: false
+  complete: false
+  note: MyText
+  context_id: 1

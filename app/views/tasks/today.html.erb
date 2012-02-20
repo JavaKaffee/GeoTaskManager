@@ -1,0 +1,19 @@
+<div data-role="header" data-position="fixed">
+  <div data-role="navbar">
+    <ul>
+      <li><%= link_to 'Listen', root_path %></li>
+      <li><%= link_to 'Heute', tasks_today_path, :class => "ui-btn-active ui-state-persist" %></li>
+    </ul>
+  </div>
+</div>
+
+<div data-role="content">
+    <ul data-role="listview" data-theme="a">     
+      <% @today.each do |task| %>
+        <li>
+          <%= link_to task.name, context_task_path(task) %>
+          <%= link_to 'edit task', edit_context_task_path(task.context(task.context_id),task), "data-icon" => "gear" %>
+        </li>
+      <% end %>
+    </ul>
+</div>

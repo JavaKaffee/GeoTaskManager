@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @task.name %>
+</p>
+
+<p>
+  <b>Expiration:</b>
+  <%= @task.expiration %>
+</p>
+
+<p>
+  <b>Reminder:</b>
+  <%= @task.reminder %>
+</p>
+
+<p>
+  <b>Important:</b>
+  <%= @task.important %>
+</p>
+
+<p>
+  <b>Complete:</b>
+  <%= @task.complete %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%= @task.note %>
+</p>
+
+<p>
+  <b>Context:</b>
+  <%= @task.context_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_context_task_path(@task) %> |
+<%= link_to 'Back', context_tasks_path(@context) %>

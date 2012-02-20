@@ -1,0 +1,45 @@
+<%= form_for([@context,@task]) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field" data-role="fieldcontain">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field" data-role="fieldcontain">
+    <%= f.label :expiration %><br />
+    <%= f.datetime_select :expiration, :default => 12.hours.from_now.in_time_zone('MET'), :order => [:day, :month, :year], :datetime_separator => '', :time_separator => '', :end_year => Time.now.year + 5 %>
+  </div>
+  <div class="field" data-role="fieldcontain">
+    <%= f.label :reminder %><br />
+    <%= f.check_box :reminder %>
+  </div>
+  <div class="field" data-role="fieldcontain">
+    <%= f.label :important %><br />
+    <%= f.check_box :important %>
+  </div>
+  <div class="field" data-role="fieldcontain">
+    <%= f.label :complete %><br />
+    <%= f.check_box :complete %>
+  </div>
+  <div class="field" data-role="fieldcontain">
+    <%= f.label :note %><br />
+    <%= f.text_area :note %>
+  </div>
+  <div class="field" data-role="fieldcontain">
+    <%= f.label :context_id %><br />
+    <%= f.number_field :context_id, :value => @context.id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

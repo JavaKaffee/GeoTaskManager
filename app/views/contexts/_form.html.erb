@@ -1,0 +1,32 @@
+<%= form_for(@context) do |f| %>
+  <% if @context.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@context.errors.count, "error") %> prohibited this context from being saved:</h2>
+
+      <ul>
+      <% @context.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field" data-role="fieldcontain">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <%= f.hidden_field :latitude, :id => "latitude" %>
+  <%= f.hidden_field :longitude, :id => "longitude" %>
+  <script>
+    $(document).ready(function(){
+      initialize_map();
+      initialize();
+    });
+  </script>
+  <div id="map_canvas" on data-role="fieldcontain" style="width:100%;height:225px;"></div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
