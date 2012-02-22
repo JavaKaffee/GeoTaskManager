@@ -1,5 +1,5 @@
 <div data-role="header" data-theme="b">
-  <%= link_to 'Back', root_path, "data-icon" => "arrow-l", "data-rel" => "back" %>
+  <%= link_to 'Back', root_path, "data-icon" => "arrow-l" %>
   <h1><%= @context.name %></h1>
   <script>
     $(document).ready(function(){
@@ -18,9 +18,21 @@
   <ul data-role="listview" data-theme="c">
     <% @tasks.each do |task| %>
       <li>
-        <%= link_to task.name, context_task_path(@context,task) %>
-        <%= link_to 'edit task', edit_context_task_path(@context,task), "data-icon" => "gear" %>
+        <% if task.important %>
+          <%= link_to task.name, task, "data-icon" => "star", "data-iconpos" => "left" %>
+        <% else %>
+          <%= link_to task.name, task %>
+        <% end %>
+        <%= link_to 'Task bearbeiten', edit_task_path(task), "data-icon" => "gear" %>
       </li>
     <% end %>
   </ul>
 </div>
+
+<div data-role="footer" data-position="fixed">		
+  <div data-role="navbar">
+    <ul>
+      <li><%= link_to 'Add', new_context_task_path(@context), "data-icon" => "plus" %></li>
+    </ul>
+  </div><!-- /navbar -->
+</div><!-- /footer -->

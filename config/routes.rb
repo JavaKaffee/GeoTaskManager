@@ -2,11 +2,11 @@ GeoTaskManager::Application.routes.draw do
   
   root :to => 'contexts#index'
   
-  resources :contexts do
+  match 'tasks/today' => 'tasks#today'
+  
+  resources :contexts, :shallow => true do
     resources :tasks
   end
-  
-  match 'tasks/today' => 'tasks#today'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

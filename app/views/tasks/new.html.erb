@@ -1,7 +1,8 @@
 <div data-role="header">
-  <h1>New Task</h1>
+  <%= link_to 'Back', @context, "data-icon" => "arrow-l", "data-rel" => "back" %>
+  <h1>Neue Task</h1>
 </div>
 
 <div data-role="content">
-  <%= render 'form' %>
+  <%= render 'newform' %>
 </div>

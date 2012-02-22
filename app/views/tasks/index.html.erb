@@ -1,13 +1,13 @@
 <div data-role="header">
-  <h1>Listing tasks</h1>
+  <h1>Tasks</h1>
 </div>
 
 <div data-role="content">
     <ul data-role="listview" data-theme="a" data-counttheme="e">
       <% @tasks.each do |task| %>
         <li>
-          <%= link_to task.name, context_task_path(@context,task) %>
-          <%= link_to 'edit task', edit_context_task_path(@context,task), "data-icon" => "gear" %>
+          <%= link_to task.name, task %>
+          <%= link_to 'Task bearbeiten', edit_task_path(task), "data-icon" => "gear" %>
         </li>
       <% end %>
     </ul>

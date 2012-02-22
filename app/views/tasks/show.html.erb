@@ -1,40 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div data-role="header" data-theme="b">
+  <%= link_to 'Back', @context, "data-icon" => "arrow-l" %>
+  <h1><%= @task.name %></h1>
+</div>
 
-<p>
-  <b>Name:</b>
-  <%= @task.name %>
-</p>
-
-<p>
-  <b>Expiration:</b>
-  <%= @task.expiration %>
-</p>
-
-<p>
-  <b>Reminder:</b>
-  <%= @task.reminder %>
-</p>
-
-<p>
-  <b>Important:</b>
-  <%= @task.important %>
-</p>
-
-<p>
-  <b>Complete:</b>
-  <%= @task.complete %>
-</p>
-
-<p>
-  <b>Note:</b>
-  <%= @task.note %>
-</p>
-
-<p>
-  <b>Context:</b>
-  <%= @task.context_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_context_task_path(@task) %> |
-<%= link_to 'Back', context_tasks_path(@context) %>
+<div data-role="content">
+  <% if !notice.nil? %>
+    <p id="notice"><%= notice %></p>
+  <% end %>
+  <div data-role="collapsible-set" data-theme="b">
+    <div data-role="collapsible">
+      <h3>Fällig</h3>
+      <%= @task.expiration %>
+    </div>
+    <div data-role="collapsible">
+      <h3>Note:</h3>
+      <%= @task.note %>
+    </div>
+  </div>
+</div>

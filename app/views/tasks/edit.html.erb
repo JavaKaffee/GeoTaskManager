@@ -1,6 +1,9 @@
-<h1>Editing task</h1>
+<div data-role="header">
+  <%= link_to 'Back', @context, "data-icon" => "arrow-l", "data-rel" => "back" %>
+  <h1><%= @task.name %> bearbeiten</h1>
+  <%= link_to 'Delete', @task, confirm: 'Task löschen?', :method => :delete, "data-icon" => "delete", "class" => "ui-btn-right" %>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', context_task_path(@task) %> |
-<%= link_to 'Back', context_tasks_path %>
+<div data-role="content">
+  <%= render 'editform' %>
+</div>  
