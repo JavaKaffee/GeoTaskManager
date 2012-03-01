@@ -1,12 +1,5 @@
 <%= render :partial => 'shared/navigation' %>
 
 <div data-role="content">
-    <ul data-role="listview" data-theme="c">     
-      <% @overdue.each do |task| %>
-        <li>
-          <%= link_to task.name, task %>
-          <%= link_to 'Task bearbeiten', edit_task_path(task), "data-icon" => "gear" %>
-        </li>
-      <% end %>
-    </ul>
+    <%= render :partial => 'shared/tasklist' %>
 </div>

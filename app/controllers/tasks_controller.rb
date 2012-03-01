@@ -28,7 +28,7 @@ class TasksController < ApplicationController
   # GET /tasks/week
   # GET /tasks/week.json
   def week
-    @week = Task.all.find_all { |task| task.expiration >= DateTime.now && task.expiration <= 7.days.from_now.to_datetime }
+    @tasks = Task.all.find_all { |task| task.expiration >= DateTime.now && task.expiration <= 7.days.from_now.to_datetime }
     @index = 2
     
     respond_to do |format|
@@ -40,7 +40,7 @@ class TasksController < ApplicationController
   # GET /tasks/overdue
   # GET /tasks/overdue.json
   def overdue
-    @overdue = Task.all.find_all { |task| task.expiration <= DateTime.now }
+    @tasks = Task.all.find_all { |task| task.expiration <= DateTime.now }
     @index = 3
     
     respond_to do |format|
@@ -52,7 +52,7 @@ class TasksController < ApplicationController
   # GET /tasks/important
   # GET /tasks/important.json
   def important
-    @important = Task.all.find_all { |task| task.important? }
+    @tasks = Task.all.find_all { |task| task.important? }
     @index = 4
     
     respond_to do |format|
