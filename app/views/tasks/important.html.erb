@@ -2,7 +2,7 @@
 
 <div data-role="content">
     <ul data-role="listview" data-theme="c">     
-      <% @today.each do |task| %>
+      <% @important.each do |task| %>
         <li>
           <%= link_to task.name, task %>
           <%= link_to 'Task bearbeiten', edit_task_path(task), "data-icon" => "gear" %>

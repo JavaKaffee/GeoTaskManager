@@ -3,5 +3,5 @@ class Context < ActiveRecord::Base
                    :uniqueness => { :message => " bereits vorhanden" }, 
                    :format     => { :with => /[A-Z]./, :on => :create }
   
-  has_many :task
+  has_many :task, :dependent => :destroy
 end

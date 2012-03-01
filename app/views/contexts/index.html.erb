@@ -1,21 +1,20 @@
-<div data-role="header" data-position="fixed">
-  <div data-role="navbar">
-    <ul>
-      <li><%= link_to 'Listen', root_path, "data-icon" => "grid", :class => "ui-btn-active ui-state-persist" %></li>
-      <li><%= link_to 'Heute', tasks_today_path, "data-icon" => "alert" %></li>
-      <li><%= link_to 'Hier', tasks_today_path, "data-icon" => "search" %></li>
-      <li><%= link_to 'Wichtig', tasks_today_path, "data-icon" => "star" %></li>
-    </ul>
-  </div>
-</div>
+<%= render :partial => 'shared/navigation' %>
 
 <div data-role="content">
   <ul data-role="listview" data-theme="c" data-counttheme="e">
+    <li>
+      <%= form_tag :controller => "contexts", :action => "here" do %>
+        <%= hidden_field_tag :latitude %>
+        <%= hidden_field_tag :longitude %>
+        <%= submit_tag 'Such mich!', "data-theme" => "a", "data-icon" => "search", "data-iconpos" => "left" %>
+      <% end %>
+      <%= javascript_tag "$(document).ready(function(){getPos();});" %>
+    </li>
     <% @contexts.each do |context| %>
       <li>
-        <%= link_to context.name, context %>
+        <%= link_to context.name, context, "data-prefetch" => true %>
         <span class="ui-li-count"><%= Task.find_all_by_context_id(context.id).count %></span>
-        <%= link_to 'Kontext bearbeiten', edit_context_path(context), "data-icon" => "gear" %>
+        <%= link_to 'Kontext bearbeiten', edit_context_path(context), "data-icon" => "gear", "data-ajax" => false, "data-prefetch" => true %>
       </li>
     <% end %>
   </ul>
@@ -24,7 +23,7 @@
 <div data-role="footer" data-position="fixed">		
   <div data-role="navbar">
     <ul>
-      <li><%= link_to 'Add', new_context_path, "data-icon" => "plus" %></li>
+      <li><%= link_to 'Kontext hinzufügen', new_context_path, "data-icon" => "plus", "data-ajax" => false, "data-prefetch" => true %></li>
     </ul>
   </div><!-- /navbar -->
 </div><!-- /footer -->

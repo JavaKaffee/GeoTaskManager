@@ -1,0 +1,8 @@
+<ul data-role="listview" data-theme="c">
+  <% @tasks.each do |task| %>
+    <li <%= "data-theme='f'" if task.important %>>
+      <%= link_to task.name, task, "data-prefetch" => true %>
+      <%= link_to 'Task bearbeiten', edit_task_path(task), "data-icon" => "gear", "data-prefetch" => true %>
+    </li>
+  <% end %>
+</ul>

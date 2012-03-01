@@ -1,6 +1,6 @@
 function initialize_existing_map()
 {
-    if (document.getElementById("existing_map_canvas") != null) {
+    if (document.getElementById("map_canvas") != null) {
         var myLatlng = new google.maps.LatLng(parseFloat(document.getElementById('latitude').value),parseFloat(document.getElementById('longitude').value));
         var myOptions = {
             zoom: 14,
@@ -14,7 +14,7 @@ function initialize_existing_map()
             center: myLatlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
-        var map = new google.maps.Map(document.getElementById("existing_map_canvas"), myOptions);
+        var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
         
         var image = '../assets/computers.png';
         var marker = new google.maps.Marker({
@@ -128,3 +128,27 @@ function show_position(p)
     });
 	
 }
+
+function getPos() {
+    if(geo_position_js.init())
+    {
+        geo_position_js.getCurrentPosition(setCoords,function(){
+            document.getElementById('latitude').value="Couldn't get location"
+            document.getElementById('longitude').value="Couldn't get location"
+        },{
+            enableHighAccuracy:true
+        });
+    }
+    else
+    {
+        document.getElementById('longitude').value="Functionality not available";
+        document.getElementById('latitude').value="Functionality not available";
+    }
+}
+
+function setCoords(p) {
+    document.getElementById('longitude').value=p.coords.longitude.toFixed(8)
+    document.getElementById('latitude').value=p.coords.latitude.toFixed(8)
+}
+  
+//getPos();var newHREF = '/contexts/here?longitude=' + $('#longitude').value + '&latitude=' + $('#latitude').value;$('a#here').attr('href', newHREF);

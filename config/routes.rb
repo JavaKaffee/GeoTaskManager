@@ -2,11 +2,33 @@ GeoTaskManager::Application.routes.draw do
   
   root :to => 'contexts#index'
   
-  match 'tasks/today' => 'tasks#today'
+  #match 'contexts/here'   => 'contexts#here'
+  
+  #match 'tasks/today'     => 'tasks#today'
+  #match 'tasks/week'      => 'tasks#week'
+  #match 'tasks/overdue'   => 'tasks#overdue'
+  #match 'tasks/important' => 'tasks#important'
+  
+  resources :contexts, :except => [:index, :show, :new, :edit, :create, :update, :destroy] do
+    collection do
+      post 'here'
+    end
+  end
+  
+  resources :tasks, :except => [:index, :show, :new, :edit, :create, :update, :destroy] do
+    collection do
+      get 'today'
+      get 'week'
+      get 'overdue'
+      get 'important'
+    end
+  end
   
   resources :contexts, :shallow => true do
     resources :tasks
   end
+  
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

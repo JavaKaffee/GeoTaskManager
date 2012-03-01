@@ -3,6 +3,7 @@ class ContextsController < ApplicationController
   # GET /contexts.json
   def index
     @contexts = Context.all
+    @index = 0
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +15,7 @@ class ContextsController < ApplicationController
   # GET /contexts/1.json
   def show
     @context = Context.find(params[:id])
-    @tasks = Task.find_all_by_context_id(params[:id])
+    @tasks = Task.order("important DESC","expiration ASC").find_all_by_context_id(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,16 +26,24 @@ class ContextsController < ApplicationController
   # GET /contexts/1
   # GET /contexts/1.json
   def here
-    @contexts = Context.all
-    @context = @contexts.first
-    
-    @contexts.each do |context|
-      
-    end
+    @lat = params[:latitude].to_s.to_f
+    @long = params[:longitude].to_s.to_f
+    lat_l = @lat-0.01380000
+    lat_r = @lat+0.01380000
+    long_l = @long-0.01680000
+    long_r = @long+0.01680000
 
+    @context = Context.find(:first, :conditions => { :latitude => lat_l..lat_r, :longitude => long_l..long_r })
+      
     respond_to do |format|
-      format.html # here.html.erb
-      format.json { render json: @context }
+      if @context.nil?
+        format.html { redirect_to contexts_path, notice: "Kein Kontext in der Nähe gefunden." }
+        format.json { head :no_content }
+      else
+        #@tasks = Task.order("important DESC","expiration ASC").find_all_by_context_id(@context.id)
+        format.html { redirect_to context_path(@context) }
+        format.json { render json: @context }
+      end
     end
   end
 

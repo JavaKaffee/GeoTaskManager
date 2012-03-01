@@ -16,15 +16,10 @@
     <%= f.text_field :name %>
   </div>
 
-  <%= f.hidden_field :latitude, :id => "latitude" %>
-  <%= f.hidden_field :longitude, :id => "longitude" %>
-  <script>
-    $(document).ready(function(){
-      initialize_map();
-      initialize();
-    });
-  </script>
-  <div id="map_canvas" on data-role="fieldcontain" style="width:100%;height:225px;"></div>
+  <%= f.hidden_field :latitude, :id => "latitude", :value => "" %>
+  <%= f.hidden_field :longitude, :id => "longitude", :value => "" %>
+
+  <%= render :partial => 'shared/geomap' %>
   
   <div class="actions">
     <%= f.submit %>

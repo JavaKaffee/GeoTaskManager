@@ -16,6 +16,7 @@ class TasksController < ApplicationController
   def today
     @tasks = Task.all
     @today = @tasks.find_all { |task| task.expiration.today? }
+    @index = 1
     
     respond_to do |format|
       format.html # today.html.erb
@@ -23,7 +24,43 @@ class TasksController < ApplicationController
     end
     
   end
+  
+  # GET /tasks/week
+  # GET /tasks/week.json
+  def week
+    @week = Task.all.find_all { |task| task.expiration >= DateTime.now && task.expiration <= 7.days.from_now.to_datetime }
+    @index = 2
+    
+    respond_to do |format|
+      format.html # week.html.erb
+      format.json { render json: @week }
+    end
+  end
+  
+  # GET /tasks/overdue
+  # GET /tasks/overdue.json
+  def overdue
+    @overdue = Task.all.find_all { |task| task.expiration <= DateTime.now }
+    @index = 3
+    
+    respond_to do |format|
+      format.html # overdue.html.erb
+      format.json { render json: @overdue }
+    end
+  end
 
+  # GET /tasks/important
+  # GET /tasks/important.json
+  def important
+    @important = Task.all.find_all { |task| task.important? }
+    @index = 4
+    
+    respond_to do |format|
+      format.html # important.html.erb
+      format.json { render json: @important }
+    end
+  end
+  
   # GET /tasks/1
   # GET /tasks/1.json
   def show
@@ -58,13 +95,14 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(params[:task])
+    @context = Context.find(params[:context_id])
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
-        format.json { render json: @task, status: :created, location: @task }
+        format.html { redirect_to context_path(@context), notice: 'Task was successfully created.' }
+        format.json { render json: @context, status: :created, location: @context }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to action: "new" }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
@@ -78,7 +116,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.html { redirect_to context_path(@context), notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -91,10 +129,11 @@ class TasksController < ApplicationController
   # DELETE /tasks/1.json
   def destroy
     @task = Task.find(params[:id])
+    @context = Context.find(@task.context_id)
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to tasks_url }
+      format.html { redirect_to context_path(@context) }
       format.json { head :no_content }
     end
   end

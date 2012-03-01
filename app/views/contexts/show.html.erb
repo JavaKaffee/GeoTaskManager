@@ -1,38 +1,19 @@
 <div data-role="header" data-theme="b">
-  <%= link_to 'Back', root_path, "data-icon" => "arrow-l" %>
+  <%= link_to 'Zurück', root_path, "data-icon" => "arrow-l", "data-ajax" => false %>
   <h1><%= @context.name %></h1>
-  <script>
-    $(document).ready(function(){
-      initialize_existing_map();
-    });
-  </script>
   <input type="hidden" id="latitude" value="<%= @context.latitude %>"/>
   <input type="hidden" id="longitude" value="<%= @context.longitude %>"/>
-  <div id="existing_map_canvas" on data-role="fieldcontain" style="width:100%;height:50px;"></div>
+  
 </div>
 
 <div data-role="content">
-  <% !notice.nil? do %>
-    <p id="notice"><%= notice %></p>
-  <% end %>
-  <ul data-role="listview" data-theme="c">
-    <% @tasks.each do |task| %>
-      <li>
-        <% if task.important %>
-          <%= link_to task.name, task, "data-icon" => "star", "data-iconpos" => "left" %>
-        <% else %>
-          <%= link_to task.name, task %>
-        <% end %>
-        <%= link_to 'Task bearbeiten', edit_task_path(task), "data-icon" => "gear" %>
-      </li>
-    <% end %>
-  </ul>
+  <%= render 'tasklist' %>
 </div>
 
 <div data-role="footer" data-position="fixed">		
   <div data-role="navbar">
     <ul>
-      <li><%= link_to 'Add', new_context_task_path(@context), "data-icon" => "plus" %></li>
+      <li><%= link_to 'Task hinzufügen', new_context_task_path(@context), "data-icon" => "plus", "data-prefetch" => true %></li>
     </ul>
   </div><!-- /navbar -->
 </div><!-- /footer -->

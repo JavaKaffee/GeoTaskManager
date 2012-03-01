@@ -1,6 +1,5 @@
 class Task < ActiveRecord::Base
-  validates :name, :presence   => { :message => " muss enthalten sein" }, 
-                   :uniqueness => { :message => " bereits vorhanden" }, 
+  validates :name, :presence   => { :message => " muss enthalten sein" },
                    :format     => { :with => /[A-Z]./, :on => :create }
   
   belongs_to :context
