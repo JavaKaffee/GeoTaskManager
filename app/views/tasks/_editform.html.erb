@@ -11,8 +11,17 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :context_id %>
+
   <div class="field" data-role="fieldcontain">
-    <%= f.hidden_field :context_id %>
+    <%= f.label :complete, "Erledigt" %><br />
+    <select name="task[complete]" id="task_complete" data-role="slider">
+      <% if @task.complete %>
+        <%= options_for_select([["Ja", true], ["Nein", false]]) %>
+      <% else %>
+        <%= options_for_select([["Nein", false], ["Ja", true]]) %>
+      <% end %>
+    </select>
   </div>
 
   <%= render :partial => 'form', :locals => { :f => f } %>

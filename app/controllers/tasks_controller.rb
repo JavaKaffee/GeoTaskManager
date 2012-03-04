@@ -14,8 +14,7 @@ class TasksController < ApplicationController
   # GET /tasks/today
   # GET /tasks/today.json
   def today
-    @tasks = Task.all
-    @today = @tasks.find_all { |task| task.expiration.today? }
+    @tasks = Task.all.find_all { |task| task.expiration.today? && task.expiration >= DateTime.now }
     @index = 1
     
     respond_to do |format|
@@ -99,7 +98,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to context_path(@context), notice: 'Task was successfully created.' }
+        format.html { redirect_to context_path(@context), notice: 'Task wurde erstellt.' }
         format.json { render json: @context, status: :created, location: @context }
       else
         format.html { redirect_to action: "new" }

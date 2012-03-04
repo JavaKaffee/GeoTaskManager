@@ -1,10 +1,10 @@
-<div data-role="header" data-theme="b">
-  <%= link_to 'Back', @context, "data-ajax" => "false", "data-icon" => "arrow-l" %>
+<div data-role="header" data-theme="a">
+  <%= link_to 'Back', @context, "data-icon" => "arrow-l", "data-iconpos" => "notext" %>
   <h1><%= @task.name %></h1>
 </div>
 
 <div data-role="content">
-  <% if !notice.nil? %>
+  <% if notice %>
     <p id="notice"><%= notice %></p>
   <% end %>
   <div data-role="collapsible-set" data-theme="b">

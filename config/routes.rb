@@ -25,7 +25,7 @@ GeoTaskManager::Application.routes.draw do
   end
   
   resources :contexts, :shallow => true do
-    resources :tasks
+    resources :tasks, :except => :index
   end
   
   

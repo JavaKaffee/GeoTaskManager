@@ -3,34 +3,24 @@
   <%= f.text_field :name %>
 </div>
 <fieldset data-role="controlgroup" data-type="horizontal">
-  <%= f.label :expiration %><br />
+  <%= f.label :expiration, "Fällig" %><br />
   <%= f.datetime_select :expiration, :default => 12.hours.from_now.in_time_zone('MET'), 
     :order => [:day, :month, :year], :datetime_separator => '', :time_separator => '', 
     :start_year => Time.now.year, :end_year => Time.now.year + 5 %>
 </fieldset>
 <div class="field" data-role="fieldcontain">
-  <%= f.label :reminder %><br />
-  <select name="task[reminder]" id="task_reminder" data-role="slider">
-    <% if @task.reminder %>
-      <%= options_for_select([["Yes", true], ["No", false]]) %>
-    <% else %>
-      <%= options_for_select([["No", false], ["Yes", true]]) %>
-    <% end %>
-  </select>
-</div>
-<div class="field" data-role="fieldcontain">
-  <%= f.label :important %><br />
+  <%= f.label :important, "Wichtig" %><br />
   <select name="task[important]" id="task_important" data-role="slider">
     <% if @task.important %>
-      <%= options_for_select([["Yes", true], ["No", false]]) %>
+      <%= options_for_select([["Ja", true], ["Nein", false]]) %>
     <% else %>
-      <%= options_for_select([["No", false], ["Yes", true]]) %>
+      <%= options_for_select([["Nein", false], ["Ja", true]]) %>
     <% end %>
   </select>
 </div>
 <div class="field" data-role="fieldcontain">
-  <%= f.label :note %><br />
-  <%= f.text_area :note %><%= f.check_box :complete, :style => "visibility:hidden" %>
+  <%= f.label :note, "Notiz" %><br />
+  <%= f.text_area :note %>
 </div>
 <div class="actions">
   <%= f.submit %>

@@ -3,7 +3,6 @@ class CreateTasks < ActiveRecord::Migration
     create_table :tasks do |t|
       t.string :name
       t.datetime :expiration
-      t.boolean :reminder
       t.boolean :important
       t.boolean :complete
       t.text :note

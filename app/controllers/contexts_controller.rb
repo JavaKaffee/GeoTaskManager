@@ -40,8 +40,8 @@ class ContextsController < ApplicationController
         format.html { redirect_to contexts_path, notice: "Kein Kontext in der Nähe gefunden." }
         format.json { head :no_content }
       else
-        #@tasks = Task.order("important DESC","expiration ASC").find_all_by_context_id(@context.id)
-        format.html { redirect_to context_path(@context) }
+        @tasks = Task.order("important DESC","expiration ASC").find_all_by_context_id(@context.id)
+        format.html
         format.json { render json: @context }
       end
     end
@@ -70,7 +70,7 @@ class ContextsController < ApplicationController
 
     respond_to do |format|
       if @context.save
-        format.html { redirect_to @context, notice: 'Context was successfully created.' }
+        format.html { redirect_to @context, notice: 'Kontext erfolgreich erstellt.' }
         format.json { render json: @context, status: :created, location: @context }
       else
         format.html { render action: "new" }
@@ -86,7 +86,7 @@ class ContextsController < ApplicationController
 
     respond_to do |format|
       if @context.update_attributes(params[:context])
-        format.html { redirect_to @context, notice: 'Context was successfully updated.' }
+        format.html { redirect_to @context, notice: 'Kontext wurde aktualisiert.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

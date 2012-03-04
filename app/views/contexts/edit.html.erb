@@ -1,5 +1,5 @@
 <div data-role="header">
-  <%= link_to 'Zurück', root_path, "data-icon" => "arrow-l", "data-ajax" => false %>
+  <%= link_to 'Zurück', root_path, "data-icon" => "arrow-l", "data-ajax" => false, "data-iconpos" => "notext" %>
   <h1><%= @context.name %> bearbeiten</h1>
   <%= link_to 'Löschen', @context, confirm: 'Kontext löschen?', :method => :delete, "data-icon" => "delete", :class => "ui-btn-right", "data-ajax" => false, "data-iconpos" => "notext" %>
 </div>

@@ -16,8 +16,8 @@
     <%= f.text_field :name %>
   </div>
 
-  <%= f.hidden_field :latitude, :id => "latitude", :value => "" %>
-  <%= f.hidden_field :longitude, :id => "longitude", :value => "" %>
+  <%= f.hidden_field :latitude, :id => "latitude" %>
+  <%= f.hidden_field :longitude, :id => "longitude" %>
 
   <%= render :partial => 'shared/geomap' %>
   

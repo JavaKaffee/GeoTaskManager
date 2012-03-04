@@ -11,9 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field" data-role="fieldcontain">
-    <%= f.hidden_field :context_id, :value => params[:context_id] %>
-  </div>
+  <%= f.hidden_field :context_id, :value => params[:context_id] %>
+  <%= f.check_box :complete, :style => "visibility:hidden" %>
 
   <%= render :partial => 'form', :locals => { :f => f } %>
 

@@ -8,7 +8,6 @@
         <%= hidden_field_tag :longitude %>
         <%= submit_tag 'Such mich!', "data-theme" => "a", "data-icon" => "search", "data-iconpos" => "left" %>
       <% end %>
-      <%= javascript_tag "$(document).ready(function(){getPos();});" %>
     </li>
     <% @contexts.each do |context| %>
       <li>
@@ -27,3 +26,5 @@
     </ul>
   </div><!-- /navbar -->
 </div><!-- /footer -->
+
+<%= javascript_tag "getPos()" %>
