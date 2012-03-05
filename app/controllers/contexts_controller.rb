@@ -50,6 +50,7 @@ class ContextsController < ApplicationController
   # GET /contexts/new
   # GET /contexts/new.json
   def new
+    @user = User.find(params[:user_id])
     @context = Context.new
 
     respond_to do |format|

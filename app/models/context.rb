@@ -4,4 +4,5 @@ class Context < ActiveRecord::Base
                    :format     => { :with => /[A-Z]./, :on => :create }
   
   has_many :task, :dependent => :destroy
+  belongs_to :user
 end

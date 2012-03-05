@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120227080435) do
+ActiveRecord::Schema.define(:version => 20120304140636) do
 
   create_table "contexts", :force => true do |t|
     t.string   "name"
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -31,11 +32,16 @@ ActiveRecord::Schema.define(:version => 20120227080435) do
   create_table "tasks", :force => true do |t|
     t.string   "name"
     t.datetime "expiration"
-    t.boolean  "reminder"
     t.boolean  "important"
     t.boolean  "complete"
     t.text     "note"
     t.integer  "context_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

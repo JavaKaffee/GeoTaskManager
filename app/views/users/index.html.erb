@@ -1,0 +1,15 @@
+<div data-role="content" data-theme="a">
+  
+  <%= form_tag users_path do %>
+    <%= text_field_tag :name %>
+    <%= submit_tag 'Laden', 'data-icon' => 'search' %>
+  <% end %>
+</div>
+
+<div data-role="footer" data-position="fixed" data-theme="a">		
+  <div data-role="navbar">
+    <ul>
+      <li><%= link_to 'Registrieren', new_user_path, "data-icon" => "plus", "data-prefetch" => true %></li>
+    </ul>
+  </div><!-- /navbar -->
+</div><!-- /footer -->

@@ -3,7 +3,7 @@
 <div data-role="content">
   <ul data-role="listview" data-theme="c" data-counttheme="e">
     <li>
-      <%= form_tag :controller => "contexts", :action => "here" do %>
+      <%= form_tag here_contexts_path do %>
         <%= hidden_field_tag :latitude %>
         <%= hidden_field_tag :longitude %>
         <%= submit_tag 'Such mich!', "data-theme" => "a", "data-icon" => "search", "data-iconpos" => "left" %>
@@ -22,7 +22,7 @@
 <div data-role="footer" data-position="fixed">		
   <div data-role="navbar">
     <ul>
-      <li><%= link_to 'Kontext hinzufügen', new_context_path, "data-icon" => "plus", "data-ajax" => false, "data-prefetch" => true %></li>
+      <li><%= link_to 'Kontext hinzufügen', new_user_context_path(@user), "data-icon" => "plus", "data-ajax" => false, "data-prefetch" => true %></li>
     </ul>
   </div><!-- /navbar -->
 </div><!-- /footer -->
