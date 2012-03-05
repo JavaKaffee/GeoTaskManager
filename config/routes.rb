@@ -2,26 +2,22 @@ GeoTaskManager::Application.routes.draw do
 
   root :to => 'users#index'
   
-  resources :contexts, :except => [:index, :show, :new, :edit, :create, :update, :destroy] do
+  resources :users, :except => [:show, :edit, :update] do
     collection do
-      post 'here'
+      post 'load'
     end
-  end
-  
-  resources :tasks, :except => [:index, :show, :new, :edit, :create, :update, :destroy] do
-    collection do
-      get 'today'
-      get 'week'
-      get 'overdue'
-      get 'important'
+    resources :tasks, :except => [:index, :show, :new, :edit, :create, :update, :destroy] do
+      collection do
+        get 'today'
+        get 'week'
+        get 'overdue'
+        get 'important'
+      end
     end
-  end
-  
-  resources :users, :except => [:show, :edit, :update], :shallow => true do
-    collection do
-      post 'show'
-    end
-    resources :contexts, :shallow => true do
+    resources :contexts do
+      collection do
+        post 'here'
+      end
       resources :tasks, :except => :index
     end
   end

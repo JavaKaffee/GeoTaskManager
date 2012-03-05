@@ -3,7 +3,7 @@
 <div data-role="content">
   <ul data-role="listview" data-theme="c" data-counttheme="e">
     <li>
-      <%= form_tag here_contexts_path do %>
+      <%= form_tag here_user_contexts_path do %>
         <%= hidden_field_tag :latitude %>
         <%= hidden_field_tag :longitude %>
         <%= submit_tag 'Such mich!', "data-theme" => "a", "data-icon" => "search", "data-iconpos" => "left" %>
@@ -11,9 +11,9 @@
     </li>
     <% @contexts.each do |context| %>
       <li>
-        <%= link_to context.name, context, "data-prefetch" => true %>
+        <%= link_to context.name, user_context_path(@user,context), "data-prefetch" => true %>
         <span class="ui-li-count"><%= Task.find_all_by_context_id(context.id).count %></span>
-        <%= link_to 'Kontext bearbeiten', edit_context_path(context), "data-icon" => "gear", "data-ajax" => false, "data-prefetch" => true %>
+        <%= link_to 'Kontext bearbeiten', edit_user_context_path(@user,context), "data-icon" => "gear", "data-ajax" => false, "data-prefetch" => true %>
       </li>
     <% end %>
   </ul>

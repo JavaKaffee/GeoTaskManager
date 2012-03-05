@@ -1,8 +1,10 @@
+# encoding = utf-8
 class ContextsController < ApplicationController
   # GET /contexts
   # GET /contexts.json
   def index
     @contexts = Context.all
+    @user = User.find(params[:user_id])
     @index = 0
 
     respond_to do |format|
@@ -15,6 +17,7 @@ class ContextsController < ApplicationController
   # GET /contexts/1.json
   def show
     @context = Context.find(params[:id])
+    @user = User.find(params[:user_id])
     @tasks = Task.order("important DESC","expiration ASC").find_all_by_context_id(params[:id])
 
     respond_to do |format|
@@ -37,7 +40,7 @@ class ContextsController < ApplicationController
       
     respond_to do |format|
       if @context.nil?
-        format.html { redirect_to contexts_path, notice: "Kein Kontext in der Nähe gefunden." }
+        format.html { redirect_to user_contexts_path, notice: "Kein Kontext in der Nähe gefunden." }
         format.json { head :no_content }
       else
         @tasks = Task.order("important DESC","expiration ASC").find_all_by_context_id(@context.id)
@@ -61,17 +64,19 @@ class ContextsController < ApplicationController
 
   # GET /contexts/1/edit
   def edit
+    @user = User.find(params[:user_id])
     @context = Context.find(params[:id])
   end
 
   # POST /contexts
   # POST /contexts.json
   def create
+    @user = User.find(params[:user_id])
     @context = Context.new(params[:context])
 
     respond_to do |format|
       if @context.save
-        format.html { redirect_to @context, notice: 'Kontext erfolgreich erstellt.' }
+        format.html { redirect_to user_contexts_path(@user), notice: 'Kontext erfolgreich erstellt.' }
         format.json { render json: @context, status: :created, location: @context }
       else
         format.html { render action: "new" }
@@ -83,11 +88,12 @@ class ContextsController < ApplicationController
   # PUT /contexts/1
   # PUT /contexts/1.json
   def update
+    @user = User.find(params[:user_id])
     @context = Context.find(params[:id])
 
     respond_to do |format|
       if @context.update_attributes(params[:context])
-        format.html { redirect_to @context, notice: 'Kontext wurde aktualisiert.' }
+        format.html { redirect_to user_contexts_path(@user), notice: 'Kontext wurde aktualisiert.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -99,11 +105,12 @@ class ContextsController < ApplicationController
   # DELETE /contexts/1
   # DELETE /contexts/1.json
   def destroy
+    @user = User.find(params[:user_id])
     @context = Context.find(params[:id])
     @context.destroy
 
     respond_to do |format|
-      format.html { redirect_to contexts_url }
+      format.html { redirect_to user_contexts_path(@user) }
       format.json { head :no_content }
     end
   end
