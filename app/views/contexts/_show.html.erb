@@ -1,10 +1,7 @@
-<div data-role="header">
-  <%= link_to 'Zurück', root_path, "data-icon" => "arrow-l", "data-ajax" => false %>
-  <h1><%= @context.name %></h1>
-  <input type="hidden" id="latitude" value="<%= @context.latitude %>"/>
-  <input type="hidden" id="longitude" value="<%= @context.longitude %>"/>
-  
-</div>
+
+
+<input type="hidden" id="latitude" value="<%= @context.latitude %>"/>
+<input type="hidden" id="longitude" value="<%= @context.longitude %>"/>
 
 <div data-role="content">
   <%= render :partial => 'shared/tasklist' %>
@@ -13,7 +10,7 @@
 <div data-role="footer" data-position="fixed">		
   <div data-role="navbar">
     <ul>
-      <li><%= link_to 'Task hinzufügen', new_context_task_path(@context), "data-icon" => "plus", "data-prefetch" => true %></li>
+      <li><%= link_to 'Task hinzufügen', new_user_context_task_path(@user,@context), "data-icon" => "plus", "data-prefetch" => true %></li>
     </ul>
   </div><!-- /navbar -->
 </div><!-- /footer -->

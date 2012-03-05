@@ -3,7 +3,7 @@
 <div data-role="content">
   <ul data-role="listview" data-theme="c" data-counttheme="e">
     <li>
-      <%= form_tag here_user_contexts_path do %>
+      <%= form_tag here_user_contexts_path, "data-ajax" => false do %>
         <%= hidden_field_tag :latitude %>
         <%= hidden_field_tag :longitude %>
         <%= submit_tag 'Such mich!', "data-theme" => "a", "data-icon" => "search", "data-iconpos" => "left" %>

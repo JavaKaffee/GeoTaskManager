@@ -1,10 +1,10 @@
-# encoding = utf-8
+# encoding: utf-8
 class ContextsController < ApplicationController
   # GET /contexts
   # GET /contexts.json
   def index
-    @contexts = Context.all
     @user = User.find(params[:user_id])
+    @contexts = Context.find_all_by_user_id(@user.id)
     @index = 0
 
     respond_to do |format|
@@ -29,6 +29,7 @@ class ContextsController < ApplicationController
   # GET /contexts/1
   # GET /contexts/1.json
   def here
+    @user = User.find(params[:user_id])
     @lat = params[:latitude].to_s.to_f
     @long = params[:longitude].to_s.to_f
     lat_l = @lat-0.01380000
@@ -36,11 +37,11 @@ class ContextsController < ApplicationController
     long_l = @long-0.01680000
     long_r = @long+0.01680000
 
-    @context = Context.find(:first, :conditions => { :latitude => lat_l..lat_r, :longitude => long_l..long_r })
+    @context = Context.find(:first, :conditions => { :user_id => @user, :latitude => lat_l..lat_r, :longitude => long_l..long_r })
       
     respond_to do |format|
       if @context.nil?
-        format.html { redirect_to user_contexts_path, notice: "Kein Kontext in der Nähe gefunden." }
+        format.html { redirect_to user_contexts_path(@user), notice: "Kein Kontext in der Nähe gefunden." }
         format.json { head :no_content }
       else
         @tasks = Task.order("important DESC","expiration ASC").find_all_by_context_id(@context.id)

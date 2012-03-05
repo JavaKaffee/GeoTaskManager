@@ -1,4 +1,4 @@
-# encoding = utf-8
+# encoding: utf-8
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   
   def load
     @user = User.find_by_name(params[:name])
+    @contexts = Context.find_all_by_user_id(@user)
     
     redirect_to user_contexts_path(@user)
   end
