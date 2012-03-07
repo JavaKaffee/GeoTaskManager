@@ -19,6 +19,7 @@ class ContextsController < ApplicationController
     @context = Context.find(params[:id])
     @user = User.find(params[:user_id])
     @tasks = Task.order("important DESC","expiration ASC").find_all_by_context_id(params[:id])
+    @header = {"back" => user_contexts_path(@user), "ajax" => false, "title" => @context.name, "delete" => false}
 
     respond_to do |format|
       format.html # show.html.erb
@@ -44,6 +45,7 @@ class ContextsController < ApplicationController
         format.html { redirect_to user_contexts_path(@user), notice: "Kein Kontext in der Nähe gefunden." }
         format.json { head :no_content }
       else
+        @header = {"back" => user_contexts_path(@user), "ajax" => false, "title" => @context.name, "delete" => false}
         @tasks = Task.order("important DESC","expiration ASC").find_all_by_context_id(@context.id)
         format.html
         format.json { render json: @context }
@@ -55,6 +57,7 @@ class ContextsController < ApplicationController
   # GET /contexts/new.json
   def new
     @user = User.find(params[:user_id])
+    @header = {"back" => user_contexts_path(@user), "ajax" => false, "title" => "Neuer Kontext", "delete" => false}
     @context = Context.new
 
     respond_to do |format|
@@ -67,6 +70,7 @@ class ContextsController < ApplicationController
   def edit
     @user = User.find(params[:user_id])
     @context = Context.find(params[:id])
+    @header = {"back" => user_contexts_path(@user), "ajax" => false, "title" => @context.name + " bearbeiten", "delete" => true}    
   end
 
   # POST /contexts

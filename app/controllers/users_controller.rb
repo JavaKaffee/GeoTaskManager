@@ -10,7 +10,8 @@ class UsersController < ApplicationController
   end
   
   def load
-    @user = User.find_by_name(params[:name])
+    name = params[:name]
+    @user = User.find(:first, :conditions => [ "lower(name) = ?", name.downcase ])
     @contexts = Context.find_all_by_user_id(@user)
     
     redirect_to user_contexts_path(@user)
@@ -19,8 +20,7 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.json
   def new
-    @title = 'Registrieren'
-    @url = root_path
+    @header = {"back" => root_path, "ajax" => true, "title" => "Registrieren"}
     @user = User.new
 
     respond_to do |format|

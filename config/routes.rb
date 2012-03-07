@@ -1,24 +1,32 @@
 GeoTaskManager::Application.routes.draw do
 
+  #Beim Aufruf der Startseite wird die User-Übersicht (Login) gezeigt
   root :to => 'users#index'
   
+  #Da alle Daten von den Usern abhängig sind, bilden diese das erste Segment
+  #In dieser Version werden User lediglich registriert und somit keine Routen
+  #zum Zeigen/Editieren zur Verfügung gestellt
   resources :users, :except => [:show, :edit, :update] do
-    collection do
+    collection do #Eine Route zur Weiterleitung der User zu ihren Kontexten
       post 'load'
     end
+    #Zunächst werden weitere Routen für die Task-Darstellung angelegt, die
+    #unabhängig von den Kontexten angezeigt werden
     resources :tasks, :except => [:index, :show, :new, :edit, :create, :update, :destroy] do
-      collection do
+      collection do #Hier werden die Tasks nach verschiedenen Kriterien dargestellt
         get 'today'
         get 'week'
         get 'overdue'
         get 'important'
       end
     end
+    #Die Kontexte sind die erste geschachtelte Ressource der User
     resources :contexts do
-      collection do
+      collection do #Angefügt wird eine Route für den lokalen Kontext
         post 'here'
       end
-      resources :tasks, :except => :index
+      #Die Modelbeziehung Kontext -> Tasks wird auch als Route abgebildet
+      resources :tasks, :except => [:index, :show]
     end
   end
   

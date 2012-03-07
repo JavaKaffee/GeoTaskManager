@@ -1,7 +1,6 @@
 # encoding: utf-8
 class Context < ActiveRecord::Base
-  validates :name, :presence   => { :message => " muss enthalten sein" }, 
-                   :uniqueness => { :message => " bereits vorhanden" }, 
+  validates :name, :presence   => { :message => " muss enthalten sein" },
                    :format     => { :with => /[A-Z]./, :on => :create }
   validates :user_id, :presence   => { :message => " benötigt eine User-ID" }
   

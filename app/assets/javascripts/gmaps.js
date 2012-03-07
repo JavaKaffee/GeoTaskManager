@@ -150,5 +150,3 @@ function setCoords(p) {
     document.getElementById('longitude').value=p.coords.longitude.toFixed(8)
     document.getElementById('latitude').value=p.coords.latitude.toFixed(8)
 }
-  
-//getPos();var newHREF = '/contexts/here?longitude=' + $('#longitude').value + '&latitude=' + $('#latitude').value;$('a#here').attr('href', newHREF);

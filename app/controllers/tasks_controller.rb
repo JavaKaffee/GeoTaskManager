@@ -2,16 +2,16 @@
 class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
-  def index
-    @user = User.find(params[:user_id])
-    @tasks = Task.find_all_by_context_id(params[:context_id])
-    @context = Context.find(params[:context_id])
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @tasks }
-    end
-  end
+#  def index
+#    @user = User.find(params[:user_id])
+#    @tasks = Task.find_all_by_context_id(params[:context_id])
+#    @context = Context.find(params[:context_id])
+#
+#    respond_to do |format|
+#      format.html # index.html.erb
+#      format.json { render json: @tasks }
+#    end
+#  end
   
   # GET /tasks/today
   # GET /tasks/today.json
@@ -68,16 +68,16 @@ class TasksController < ApplicationController
   
   # GET /tasks/1
   # GET /tasks/1.json
-  def show
-    @user = User.find(params[:user_id])
-    @task = Task.find(params[:id])
-    @context = @task.context
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @task }
-    end
-  end
+#  def show
+#    @user = User.find(params[:user_id])
+#    @task = Task.find(params[:id])
+#    @context = @task.context
+#
+#    respond_to do |format|
+#      format.html # show.html.erb
+#      format.json { render json: @task }
+#    end
+#  end
 
   # GET /tasks/new
   # GET /tasks/new.json
@@ -85,6 +85,7 @@ class TasksController < ApplicationController
     @user = User.find(params[:user_id])
     @task = Task.new
     @context = Context.find(params[:context_id])
+    @header = {"back" => user_context_path(@user,@context), "ajax" => true, "title" => "Task erstellen", "delete" => false}
 
     respond_to do |format|
       format.html # new.html.erb
@@ -97,6 +98,7 @@ class TasksController < ApplicationController
     @user = User.find(params[:user_id])
     @task = Task.find(params[:id])
     @context = @task.context
+    @header = {"back" => user_context_path(@user,@context), "ajax" => true, "title" => @task.name, "delete" => false}
   end
 
   # POST /tasks
@@ -108,7 +110,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to user_context_path(@context), notice: 'Task wurde erstellt.' }
+        format.html { redirect_to user_context_path(@user,@context), notice: 'Task wurde erstellt.' }
         format.json { render json: @context, status: :created, location: @context }
       else
         format.html { redirect_to action: "new" }
@@ -126,7 +128,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
-        format.html { redirect_to user_context_path(@user,@context), notice: 'Task was successfully updated.' }
+        format.html { redirect_to user_context_path(@user,@context), notice: 'Task geändert.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -144,7 +146,7 @@ class TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to user_context_path(@context) }
+      format.html { redirect_to user_context_path(@user,@context) }
       format.json { head :no_content }
     end
   end
