@@ -56,6 +56,7 @@ class ContextsController < ApplicationController
   # GET /contexts/new
   # GET /contexts/new.json
   def new
+    @action = "Kontext erstellen"
     @user = User.find(params[:user_id])
     @header = {"back" => user_contexts_path(@user), "ajax" => false, "title" => "Neuer Kontext", "delete" => false}
     @context = Context.new
@@ -68,6 +69,7 @@ class ContextsController < ApplicationController
 
   # GET /contexts/1/edit
   def edit
+    @action = "Kontext ändern"
     @user = User.find(params[:user_id])
     @context = Context.find(params[:id])
     @header = {"back" => user_contexts_path(@user), "ajax" => false, "title" => @context.name + " bearbeiten", "delete" => true}    

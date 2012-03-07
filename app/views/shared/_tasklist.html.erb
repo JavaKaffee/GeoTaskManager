@@ -1,6 +1,6 @@
-<ul data-role="listview" data-theme="c">
+<ul data-role="listview" data-theme="a">
   <% @tasks.each do |task| %>
-    <li data-icon=<%=  task.complete ? "check" :  task.important ? "star" : "gear" %> <%= "data-theme='f'" if task.expiration <= 5.minutes.from_now && task.expiration >= DateTime.now %>>
+    <li data-icon=<%=  task.complete ? "check" :  task.important ? "star" : "gear" %> <%= "data-theme='f'" if task.expiration <= 5.minutes.from_now && task.expiration >= DateTime.now && !task.complete %>>
       <%= link_to task.name, edit_user_context_task_path(@user,@context,task), "data-prefetch" => true %>
     </li>
   <% end %>
