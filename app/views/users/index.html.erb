@@ -1,4 +1,5 @@
-<div data-role="content" data-theme="a">
+<div data-role="content">
+  <%= image_tag "logo.png", :id => "logo" %>
   <%= form_tag load_users_path, "data-ajax" => false do %>
     <%= text_field_tag :name %>
     <%= submit_tag 'Laden', 'data-icon' => 'search' %>
