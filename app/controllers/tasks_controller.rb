@@ -57,7 +57,7 @@ class TasksController < ApplicationController
   # GET /tasks/important.json
   def important
     @user = User.find(params[:user_id])
-    @tasks = Task.all.find_all { |task| task.important? && task.context.user_id == @user.id }
+    @tasks = Task.all.find_all { |task| !task.complete? && task.important? && task.context.user_id == @user.id }
     @index = 4
     
     respond_to do |format|
@@ -82,6 +82,7 @@ class TasksController < ApplicationController
   # GET /tasks/new
   # GET /tasks/new.json
   def new
+    @action = "Task erstellen"
     @user = User.find(params[:user_id])
     @task = Task.new
     @context = Context.find(params[:context_id])
@@ -95,6 +96,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
+    @action = "Task ändern"
     @user = User.find(params[:user_id])
     @task = Task.find(params[:id])
     @context = @task.context
