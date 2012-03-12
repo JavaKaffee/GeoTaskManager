@@ -902,7 +902,7 @@
 }
 .ui-body-g,
 .ui-dialog.ui-overlay-g {
-	border: 1px solid #eb05c2 /*{g-body-border}*/;
+	border: 1px solid #a5eb0a /*{g-body-border}*/;
 	background: #bdff67 /*{g-body-background-color}*/;
 	color: #000000 /*{g-body-color}*/;
 	 text-shadow:   0   /*{g-body-shadow-x}*/   1px   /*{g-body-shadow-y}*/   0   /*{g-body-shadow-radius}*/ #eeeeee /*{g-body-shadow-color}*/;
@@ -1045,7 +1045,7 @@
 }
 .ui-body-h,
 .ui-dialog.ui-overlay-h {
-	border: 1px solid #f3da62 /*{h-body-border}*/;
+	border: 1px solid #7e4b10 /*{h-body-border}*/;
 	background: #673700 /*{h-body-background-color}*/;
 	color: #ffffff /*{h-body-color}*/;
 	 text-shadow:   0   /*{h-body-shadow-x}*/   1px   /*{h-body-shadow-y}*/   0   /*{h-body-shadow-radius}*/ #444444 /*{h-body-shadow-color}*/;
@@ -1086,7 +1086,7 @@
 }
 
 .ui-btn-up-h {
-	border: 1px solid #955104 /*{h-bup-border}*/;
+	border: 1px solid #975407 /*{h-bup-border}*/;
 	background: #955104 /*{h-bup-background-color}*/;
 	font-weight: bold;
 	color: #fff5d6 /*{h-bup-color}*/;
@@ -1188,7 +1188,7 @@
 }
 .ui-body-i,
 .ui-dialog.ui-overlay-i {
-	border: 1px solid #4D6C22 /*{i-body-border}*/;
+	border: 1px solid #81b040 /*{i-body-border}*/;
 	background: #8cc63f /*{i-body-background-color}*/;
 	color: #000000 /*{i-body-color}*/;
 	 text-shadow:   0   /*{i-body-shadow-x}*/   1px   /*{i-body-shadow-y}*/   0   /*{i-body-shadow-radius}*/ #bbbbbb /*{i-body-shadow-color}*/;
@@ -1229,7 +1229,7 @@
 }
 
 .ui-btn-up-i {
-	border: 1px solid #8bc440 /*{i-bup-border}*/;
+	border: 1px solid #78ba21 /*{i-bup-border}*/;
 	background: #9fd558 /*{i-bup-background-color}*/;
 	font-weight: bold;
 	color: #fef9b9 /*{i-bup-color}*/;
@@ -1333,61 +1333,61 @@ a.ui-link-inherit {
 -----------------------------------------------------------------------------------------------------------*/
 
 .ui-corner-tl {
-	-moz-border-radius-topleft:   						.6em   /*{global-radii-blocks}*/;
-	-webkit-border-top-left-radius:   						.6em   /*{global-radii-blocks}*/;
-	border-top-left-radius:   						.6em   /*{global-radii-blocks}*/;
+	-moz-border-radius-topleft: .6em /*{global-radii-blocks}*/;
+	-webkit-border-top-left-radius: .6em /*{global-radii-blocks}*/;
+	border-top-left-radius: .6em /*{global-radii-blocks}*/;
 }
 .ui-corner-tr {
-	-moz-border-radius-topright:   						.6em   /*{global-radii-blocks}*/;
-	-webkit-border-top-right-radius:   						.6em   /*{global-radii-blocks}*/;
-	border-top-right-radius:   						.6em   /*{global-radii-blocks}*/;
+	-moz-border-radius-topright: .6em /*{global-radii-blocks}*/;
+	-webkit-border-top-right-radius: .6em /*{global-radii-blocks}*/;
+	border-top-right-radius: .6em /*{global-radii-blocks}*/;
 }
 .ui-corner-bl {
-	-moz-border-radius-bottomleft:   						.6em   /*{global-radii-blocks}*/;
-	-webkit-border-bottom-left-radius:   						.6em   /*{global-radii-blocks}*/;
-	border-bottom-left-radius:   						.6em   /*{global-radii-blocks}*/;
+	-moz-border-radius-bottomleft: .6em /*{global-radii-blocks}*/;
+	-webkit-border-bottom-left-radius: .6em /*{global-radii-blocks}*/;
+	border-bottom-left-radius: .6em /*{global-radii-blocks}*/;
 }
 .ui-corner-br {
-	-moz-border-radius-bottomright:   						.6em   /*{global-radii-blocks}*/;
-	-webkit-border-bottom-right-radius:   						.6em   /*{global-radii-blocks}*/;
-	border-bottom-right-radius:   						.6em   /*{global-radii-blocks}*/;
+	-moz-border-radius-bottomright: .6em /*{global-radii-blocks}*/;
+	-webkit-border-bottom-right-radius: .6em /*{global-radii-blocks}*/;
+	border-bottom-right-radius: .6em /*{global-radii-blocks}*/;
 }
 .ui-corner-top {
-	-moz-border-radius-topleft:   						.6em   /*{global-radii-blocks}*/;
-	-webkit-border-top-left-radius:   						.6em   /*{global-radii-blocks}*/;
-	border-top-left-radius:   						.6em   /*{global-radii-blocks}*/;
-	-moz-border-radius-topright:   						.6em   /*{global-radii-blocks}*/;
-	-webkit-border-top-right-radius:   						.6em   /*{global-radii-blocks}*/;
-	border-top-right-radius:   						.6em   /*{global-radii-blocks}*/;
+	-moz-border-radius-topleft: .6em /*{global-radii-blocks}*/;
+	-webkit-border-top-left-radius: .6em /*{global-radii-blocks}*/;
+	border-top-left-radius: .6em /*{global-radii-blocks}*/;
+	-moz-border-radius-topright: .6em /*{global-radii-blocks}*/;
+	-webkit-border-top-right-radius: .6em /*{global-radii-blocks}*/;
+	border-top-right-radius: .6em /*{global-radii-blocks}*/;
 }
 .ui-corner-bottom {
-	-moz-border-radius-bottomleft:   						.6em   /*{global-radii-blocks}*/;
-	-webkit-border-bottom-left-radius:   						.6em   /*{global-radii-blocks}*/;
-	border-bottom-left-radius:   						.6em   /*{global-radii-blocks}*/;
-	-moz-border-radius-bottomright:   						.6em   /*{global-radii-blocks}*/;
-	-webkit-border-bottom-right-radius:   						.6em   /*{global-radii-blocks}*/;
-	border-bottom-right-radius:   						.6em   /*{global-radii-blocks}*/;
+	-moz-border-radius-bottomleft: .6em /*{global-radii-blocks}*/;
+	-webkit-border-bottom-left-radius: .6em /*{global-radii-blocks}*/;
+	border-bottom-left-radius: .6em /*{global-radii-blocks}*/;
+	-moz-border-radius-bottomright: .6em /*{global-radii-blocks}*/;
+	-webkit-border-bottom-right-radius: .6em /*{global-radii-blocks}*/;
+	border-bottom-right-radius: .6em /*{global-radii-blocks}*/;
 	}
 .ui-corner-right {
-	-moz-border-radius-topright:   						.6em   /*{global-radii-blocks}*/;
-	-webkit-border-top-right-radius:   						.6em   /*{global-radii-blocks}*/;
-	border-top-right-radius:   						.6em   /*{global-radii-blocks}*/;
-	-moz-border-radius-bottomright:   						.6em   /*{global-radii-blocks}*/;
-	-webkit-border-bottom-right-radius:   						.6em   /*{global-radii-blocks}*/;
-	border-bottom-right-radius:   						.6em   /*{global-radii-blocks}*/;
+	-moz-border-radius-topright: .6em /*{global-radii-blocks}*/;
+	-webkit-border-top-right-radius: .6em /*{global-radii-blocks}*/;
+	border-top-right-radius: .6em /*{global-radii-blocks}*/;
+	-moz-border-radius-bottomright: .6em /*{global-radii-blocks}*/;
+	-webkit-border-bottom-right-radius: .6em /*{global-radii-blocks}*/;
+	border-bottom-right-radius: .6em /*{global-radii-blocks}*/;
 }
 .ui-corner-left {
-	-moz-border-radius-topleft:   						.6em   /*{global-radii-blocks}*/;
-	-webkit-border-top-left-radius:   						.6em   /*{global-radii-blocks}*/;
-	border-top-left-radius:   						.6em   /*{global-radii-blocks}*/;
-	-moz-border-radius-bottomleft:   						.6em   /*{global-radii-blocks}*/;
-	-webkit-border-bottom-left-radius:   						.6em   /*{global-radii-blocks}*/;
-	border-bottom-left-radius:   						.6em   /*{global-radii-blocks}*/;
+	-moz-border-radius-topleft: .6em /*{global-radii-blocks}*/;
+	-webkit-border-top-left-radius: .6em /*{global-radii-blocks}*/;
+	border-top-left-radius: .6em /*{global-radii-blocks}*/;
+	-moz-border-radius-bottomleft: .6em /*{global-radii-blocks}*/;
+	-webkit-border-bottom-left-radius: .6em /*{global-radii-blocks}*/;
+	border-bottom-left-radius: .6em /*{global-radii-blocks}*/;
 }
 .ui-corner-all {
-	-moz-border-radius:   						.6em   /*{global-radii-blocks}*/;
-	-webkit-border-radius:   						.6em   /*{global-radii-blocks}*/;
-	border-radius:   						.6em   /*{global-radii-blocks}*/;
+	-moz-border-radius: .6em /*{global-radii-blocks}*/;
+	-webkit-border-radius: .6em /*{global-radii-blocks}*/;
+	border-radius: .6em /*{global-radii-blocks}*/;
 }
 .ui-corner-none {
 	-moz-border-radius: 				   0;
@@ -1411,8 +1411,8 @@ a.ui-link-inherit {
 
 .ui-icon,
 .ui-icon-searchfield:after {
-	background:   						#666666   /*{global-icon-color}*/;
-	background:   						rgba(0,0,0,.4)   /*{global-icon-disc}*/;
+	background: #FFFFFF /*{global-icon-color}*/;
+	background: rgba(0,0,0,0.35) /*{global-icon-disc}*/;
 	background-image:   url(images/icons-18-white.png)   /*{global-icon-set}*/;
 	background-repeat: no-repeat;
 	-moz-border-radius: 				9px;
@@ -1561,61 +1561,61 @@ a.ui-link-inherit {
 -----------------------------------------------------------------------------------------------------------*/
 
 .ui-btn-corner-tl {
-	-moz-border-radius-topleft:   						1em   /*{global-radii-buttons}*/;
-	-webkit-border-top-left-radius:   						1em   /*{global-radii-buttons}*/;
-	border-top-left-radius:   						1em   /*{global-radii-buttons}*/;
+	-moz-border-radius-topleft: 1em /*{global-radii-buttons}*/;
+	-webkit-border-top-left-radius: 1em /*{global-radii-buttons}*/;
+	border-top-left-radius: 1em /*{global-radii-buttons}*/;
 }
 .ui-btn-corner-tr {
-	-moz-border-radius-topright:   						1em   /*{global-radii-buttons}*/;
-	-webkit-border-top-right-radius:   						1em   /*{global-radii-buttons}*/;
-	border-top-right-radius:   						1em   /*{global-radii-buttons}*/;
+	-moz-border-radius-topright: 1em /*{global-radii-buttons}*/;
+	-webkit-border-top-right-radius: 1em /*{global-radii-buttons}*/;
+	border-top-right-radius: 1em /*{global-radii-buttons}*/;
 }
 .ui-btn-corner-bl {
-	-moz-border-radius-bottomleft:   						1em   /*{global-radii-buttons}*/;
-	-webkit-border-bottom-left-radius:   						1em   /*{global-radii-buttons}*/;
-	border-bottom-left-radius:   						1em   /*{global-radii-buttons}*/;
+	-moz-border-radius-bottomleft: 1em /*{global-radii-buttons}*/;
+	-webkit-border-bottom-left-radius: 1em /*{global-radii-buttons}*/;
+	border-bottom-left-radius: 1em /*{global-radii-buttons}*/;
 }
 .ui-btn-corner-br {
-	-moz-border-radius-bottomright:   						1em   /*{global-radii-buttons}*/;
-	-webkit-border-bottom-right-radius:   						1em   /*{global-radii-buttons}*/;
-	border-bottom-right-radius:   						1em   /*{global-radii-buttons}*/;
+	-moz-border-radius-bottomright: 1em /*{global-radii-buttons}*/;
+	-webkit-border-bottom-right-radius: 1em /*{global-radii-buttons}*/;
+	border-bottom-right-radius: 1em /*{global-radii-buttons}*/;
 }
 .ui-btn-corner-top {
-	-moz-border-radius-topleft:   						1em   /*{global-radii-buttons}*/;
-	-webkit-border-top-left-radius:   						1em   /*{global-radii-buttons}*/;
-	border-top-left-radius:   						1em   /*{global-radii-buttons}*/;
-	-moz-border-radius-topright:   						1em   /*{global-radii-buttons}*/;
-	-webkit-border-top-right-radius:   						1em   /*{global-radii-buttons}*/;
-	border-top-right-radius:   						1em   /*{global-radii-buttons}*/;
+	-moz-border-radius-topleft: 1em /*{global-radii-buttons}*/;
+	-webkit-border-top-left-radius: 1em /*{global-radii-buttons}*/;
+	border-top-left-radius: 1em /*{global-radii-buttons}*/;
+	-moz-border-radius-topright: 1em /*{global-radii-buttons}*/;
+	-webkit-border-top-right-radius: 1em /*{global-radii-buttons}*/;
+	border-top-right-radius: 1em /*{global-radii-buttons}*/;
 }
 .ui-btn-corner-bottom {
-	-moz-border-radius-bottomleft:   						1em   /*{global-radii-buttons}*/;
-	-webkit-border-bottom-left-radius:   						1em   /*{global-radii-buttons}*/;
-	border-bottom-left-radius:   						1em   /*{global-radii-buttons}*/;
-	-moz-border-radius-bottomright:   						1em   /*{global-radii-buttons}*/;
-	-webkit-border-bottom-right-radius:   						1em   /*{global-radii-buttons}*/;
-	border-bottom-right-radius:   						1em   /*{global-radii-buttons}*/;
+	-moz-border-radius-bottomleft: 1em /*{global-radii-buttons}*/;
+	-webkit-border-bottom-left-radius: 1em /*{global-radii-buttons}*/;
+	border-bottom-left-radius: 1em /*{global-radii-buttons}*/;
+	-moz-border-radius-bottomright: 1em /*{global-radii-buttons}*/;
+	-webkit-border-bottom-right-radius: 1em /*{global-radii-buttons}*/;
+	border-bottom-right-radius: 1em /*{global-radii-buttons}*/;
 }
 .ui-btn-corner-right {
-	 -moz-border-radius-topright:   						1em   /*{global-radii-buttons}*/;
-	-webkit-border-top-right-radius:   						1em   /*{global-radii-buttons}*/;
-	border-top-right-radius:   						1em   /*{global-radii-buttons}*/;
-	-moz-border-radius-bottomright:   						1em   /*{global-radii-buttons}*/;
-	-webkit-border-bottom-right-radius:   						1em   /*{global-radii-buttons}*/;
-	border-bottom-right-radius:   						1em   /*{global-radii-buttons}*/;
+	 -moz-border-radius-topright: 1em /*{global-radii-buttons}*/;
+	-webkit-border-top-right-radius: 1em /*{global-radii-buttons}*/;
+	border-top-right-radius: 1em /*{global-radii-buttons}*/;
+	-moz-border-radius-bottomright: 1em /*{global-radii-buttons}*/;
+	-webkit-border-bottom-right-radius: 1em /*{global-radii-buttons}*/;
+	border-bottom-right-radius: 1em /*{global-radii-buttons}*/;
 }
 .ui-btn-corner-left {
-	-moz-border-radius-topleft:   						1em   /*{global-radii-buttons}*/;
-	-webkit-border-top-left-radius:   						1em   /*{global-radii-buttons}*/;
-	border-top-left-radius:   						1em   /*{global-radii-buttons}*/;
-	-moz-border-radius-bottomleft:   						1em   /*{global-radii-buttons}*/;
-	-webkit-border-bottom-left-radius:   						1em   /*{global-radii-buttons}*/;
-	border-bottom-left-radius:   						1em   /*{global-radii-buttons}*/;
+	-moz-border-radius-topleft: 1em /*{global-radii-buttons}*/;
+	-webkit-border-top-left-radius: 1em /*{global-radii-buttons}*/;
+	border-top-left-radius: 1em /*{global-radii-buttons}*/;
+	-moz-border-radius-bottomleft: 1em /*{global-radii-buttons}*/;
+	-webkit-border-bottom-left-radius: 1em /*{global-radii-buttons}*/;
+	border-bottom-left-radius: 1em /*{global-radii-buttons}*/;
 }
 .ui-btn-corner-all {
-	-moz-border-radius:   						1em   /*{global-radii-buttons}*/;
-	-webkit-border-radius:   						1em   /*{global-radii-buttons}*/;
-	border-radius:   						1em   /*{global-radii-buttons}*/;
+	-moz-border-radius: 1em /*{global-radii-buttons}*/;
+	-webkit-border-radius: 1em /*{global-radii-buttons}*/;
+	border-radius: 1em /*{global-radii-buttons}*/;
 }
 
 /* radius clip workaround for cleaning up corner trapping */
@@ -1676,9 +1676,9 @@ a.ui-link-inherit {
 	box-shadow: inset 0px 1px 4px 			rgba(0,0,0,.2);
 }
 .ui-icon-shadow {
-	-moz-box-shadow: 0px 1px 0   					rgba(255,255,255,.4)   /*{global-icon-shadow}*/;
-	-webkit-box-shadow: 0px 1px 0   					rgba(255,255,255,.4)   /*{global-icon-shadow}*/;
-	box-shadow: 0px 1px 0   					rgba(255,255,255,.4)   /*{global-icon-shadow}*/;
+	-moz-box-shadow: 0px 1px 0 rgba(255,255,255,.4) /*{global-icon-shadow}*/;
+	-webkit-box-shadow: 0px 1px 0 rgba(255,255,255,.4) /*{global-icon-shadow}*/;
+	box-shadow: 0px 1px 0 rgba(255,255,255,.4) /*{global-icon-shadow}*/;
 }
 
 /* Focus state - set here for specificity
