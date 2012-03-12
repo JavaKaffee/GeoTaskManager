@@ -1,8 +1,10 @@
 # encoding: utf-8
 class UsersController < ApplicationController
+  
   # GET /users
   # GET /users.json
   def index
+    @independent = true
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
@@ -20,6 +22,7 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.json
   def new
+    @independent = true
     @action = "Registrieren"
     @header = {"back" => root_path, "ajax" => true, "title" => "Registrieren"}
     @user = User.new

@@ -6,7 +6,7 @@
       <%= form_tag here_user_contexts_path, "data-ajax" => false do %>
         <%= hidden_field_tag :latitude %>
         <%= hidden_field_tag :longitude %>
-        <%= submit_tag 'Such mich!', "data-theme" => "a", "data-icon" => "search", "data-iconpos" => "left" %>
+        <%= submit_tag 'Such mich!', "data-icon" => "search", "data-iconpos" => "left" %>
       <% end %>
     </li>
     <% @contexts.each do |context| %>
@@ -19,7 +19,7 @@
   </ul>
 </div>
 
-<div data-role="footer" data-position="fixed">		
+<div data-role="footer" data-position="fixed" data-theme="<%= @user.layout %>">		
   <div data-role="navbar">
     <ul>
       <li><%= link_to 'Liste hinzufügen', new_user_context_path(@user), "data-icon" => "plus", "data-ajax" => false, "data-prefetch" => true %></li>

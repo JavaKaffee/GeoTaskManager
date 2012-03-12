@@ -1,4 +1,4 @@
-<div data-role="header" data-position="fixed">
+<div data-role="header" data-position="fixed" data-theme="<%= @user.layout %>">
   <div data-role="navbar">
     <ul id="navigation">
       <li><%= link_to 'Listen', user_contexts_path, "data-icon" => "grid", "data-prefetch" => true, :class => @index == 0 ? "ui-btn-active ui-state-persist" : nil %></li>

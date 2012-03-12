@@ -1,4 +1,4 @@
-<div data-role="header">
+<div data-role="header" data-theme="<%= @user.layout %>">
   <%= link_to 'Zurück', @header["back"], "data-icon" => "arrow-l", "data-iconpos" => "notext", "data-ajax" => @header["ajax"] %>
   <h1><%= @header["title"] %></h1>
 </div>

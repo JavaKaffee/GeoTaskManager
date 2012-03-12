@@ -17,8 +17,13 @@
   </div>
 
   <div class="field" data-role="fieldcontain">
-    <%= f.label :interval do %>Intervall für Kurzzeitaufgaben<% end %><br />
-    <%= f.number_field :interval %>
+    <%= f.label :interval do %>Erinnerungsintervall<% end %><br />
+    <%= f.number_field :interval, :value => 15 %>
+  </div>
+
+  <div class="field" data-role="fieldcontain">
+    <%= f.label :layout %><br />
+    <%= f.select :layout, {"DarthMaul" => "a", "BlueLine" => "b", "Cupertino" => "c", "Delighted" => "d", "GoldenSun" => "e", "BloodyMary" => "f", "LillyFairy" => "g", "HotChocolate" => "h", "LemonGrass" => "i"} %>
   </div>
 
   <div class="actions">
