@@ -17,7 +17,7 @@ class TasksController < ApplicationController
   # GET /tasks/today.json
   def today
     @user = User.find(params[:user_id])
-    @tasks = Task.all.find_all { |task| task.expiration.today? && task.expiration >= DateTime.now && task.context.user_id == @user.id }
+    @tasks = Task.all.find_all { |task| task.expiration.today? && task.context.user_id == @user.id }
     @index = 1
     
     respond_to do |format|

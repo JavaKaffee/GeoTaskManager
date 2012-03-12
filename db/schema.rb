@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20120304140636) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
+    t.integer  "interval"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

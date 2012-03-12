@@ -4,9 +4,7 @@ GeoTaskManager::Application.routes.draw do
   root :to => 'users#index'
   
   #Da alle Daten von den Usern abhängig sind, bilden diese das erste Segment
-  #In dieser Version werden User lediglich registriert und somit keine Routen
-  #zum Zeigen/Editieren zur Verfügung gestellt
-  resources :users, :except => [:show, :edit, :update] do
+  resources :users, :except => [:show] do
     collection do #Eine Route zur Weiterleitung der User zu ihren Kontexten
       post 'load'
     end

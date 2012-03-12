@@ -16,7 +16,12 @@
     <%= f.text_field :name %>
   </div>
 
+  <div class="field" data-role="fieldcontain">
+    <%= f.label :interval do %>Intervall für Kurzzeitaufgaben<% end %><br />
+    <%= f.number_field :interval %>
+  </div>
+
   <div class="actions">
-    <%= f.submit "Registrieren" %>
+    <%= f.submit @action %>
   </div>
 <% end %>

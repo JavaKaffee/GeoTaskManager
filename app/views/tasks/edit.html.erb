@@ -1,7 +1,7 @@
 <div data-role="header">
   <%= link_to 'Zurück', user_context_path(@user,@context), "data-icon" => "arrow-l", "data-iconpos" => "notext" %>
   <h1><%= @context.name %> bearbeiten</h1>
-  <%= link_to 'Löschen', user_context_task_path(@user,@context,@task), confirm: 'Task löschen?', :method => :delete, "data-icon" => "delete", :class => "ui-btn-right", "data-iconpos" => "notext" %>
+  <%= link_to 'Löschen', user_context_task_path(@user,@context,@task), confirm: 'Task löschen?', :method => :delete, "data-icon" => "taskman-bin", :class => "ui-btn-right", "data-iconpos" => "notext" %>
 </div>
 
 <div data-role="content">

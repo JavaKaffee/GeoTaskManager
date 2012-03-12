@@ -22,7 +22,8 @@
 <div data-role="footer" data-position="fixed">		
   <div data-role="navbar">
     <ul>
-      <li><%= link_to 'Kontext hinzufügen', new_user_context_path(@user), "data-icon" => "plus", "data-ajax" => false, "data-prefetch" => true %></li>
+      <li><%= link_to 'Liste hinzufügen', new_user_context_path(@user), "data-icon" => "plus", "data-ajax" => false, "data-prefetch" => true %></li>
+      <li><%= link_to 'Administration', edit_user_path(@user), "data-icon" => "taskman-admin", "data-prefetch" => true %></li>
     </ul>
   </div><!-- /navbar -->
 </div><!-- /footer -->

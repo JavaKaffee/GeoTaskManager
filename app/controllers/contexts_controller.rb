@@ -42,7 +42,7 @@ class ContextsController < ApplicationController
       
     respond_to do |format|
       if @context.nil?
-        format.html { redirect_to user_contexts_path(@user), notice: "Kein Kontext in der Nähe gefunden." }
+        format.html { redirect_to user_contexts_path(@user), notice: "Keine Liste in der Nähe gefunden." }
         format.json { head :no_content }
       else
         @header = {"back" => user_contexts_path(@user), "ajax" => false, "title" => @context.name, "delete" => false}
@@ -56,9 +56,9 @@ class ContextsController < ApplicationController
   # GET /contexts/new
   # GET /contexts/new.json
   def new
-    @action = "Kontext erstellen"
+    @action = "Liste erstellen"
     @user = User.find(params[:user_id])
-    @header = {"back" => user_contexts_path(@user), "ajax" => false, "title" => "Neuer Kontext", "delete" => false}
+    @header = {"back" => user_contexts_path(@user), "ajax" => false, "title" => "Neue Liste", "delete" => false}
     @context = Context.new
 
     respond_to do |format|
@@ -69,7 +69,7 @@ class ContextsController < ApplicationController
 
   # GET /contexts/1/edit
   def edit
-    @action = "Kontext ändern"
+    @action = "Liste ändern"
     @user = User.find(params[:user_id])
     @context = Context.find(params[:id])
     @header = {"back" => user_contexts_path(@user), "ajax" => false, "title" => @context.name + " bearbeiten", "delete" => true}    
@@ -83,7 +83,7 @@ class ContextsController < ApplicationController
 
     respond_to do |format|
       if @context.save
-        format.html { redirect_to user_contexts_path(@user), notice: 'Kontext erfolgreich erstellt.' }
+        format.html { redirect_to user_contexts_path(@user), notice: 'Liste erfolgreich erstellt.' }
         format.json { render json: @context, status: :created, location: @context }
       else
         format.html { render action: "new" }
@@ -100,7 +100,7 @@ class ContextsController < ApplicationController
 
     respond_to do |format|
       if @context.update_attributes(params[:context])
-        format.html { redirect_to user_contexts_path(@user), notice: 'Kontext wurde aktualisiert.' }
+        format.html { redirect_to user_contexts_path(@user), notice: 'Liste wurde aktualisiert.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
