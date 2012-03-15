@@ -1,22 +1,11 @@
 # encoding: utf-8
 class TasksController < ApplicationController
-  # GET /tasks
-  # GET /tasks.json
-#  def index
-#    @user = User.find(params[:user_id])
-#    @tasks = Task.find_all_by_context_id(params[:context_id])
-#    @context = Context.find(params[:context_id])
-#
-#    respond_to do |format|
-#      format.html # index.html.erb
-#      format.json { render json: @tasks }
-#    end
-#  end
   
   # GET /tasks/today
   # GET /tasks/today.json
   def today
     @user = User.find(params[:user_id])
+    # Finde alle Aufgaben des Users, die heute anfallen
     @tasks = Task.all.find_all { |task| task.expiration.today? && task.context.user_id == @user.id }
     @index = 1
     
@@ -31,6 +20,8 @@ class TasksController < ApplicationController
   # GET /tasks/week.json
   def week
     @user = User.find(params[:user_id])
+    # Finde alle Aufgaben des Users, welche ab jetzt in den nächsten
+    # 7 Tagen anfallen
     @tasks = Task.all.find_all { |task| task.expiration >= DateTime.now && task.expiration <= 7.days.from_now.to_datetime && task.context.user_id == @user.id }
     @index = 2
     
@@ -44,6 +35,8 @@ class TasksController < ApplicationController
   # GET /tasks/overdue.json
   def overdue
     @user = User.find(params[:user_id])
+    # Finde alle Aufgaben des Users, welche vor dem jetzigen Zeitpunkt
+    # angefallen wären
     @tasks = Task.all.find_all { |task| task.expiration <= DateTime.now && task.context.user_id == @user.id }
     @index = 3
     
@@ -57,6 +50,7 @@ class TasksController < ApplicationController
   # GET /tasks/important.json
   def important
     @user = User.find(params[:user_id])
+    # Finde alle Aufgaben des Users, welche als wichtig markiert wurden
     @tasks = Task.all.find_all { |task| !task.complete? && task.important? && task.context.user_id == @user.id }
     @index = 4
     
@@ -65,19 +59,6 @@ class TasksController < ApplicationController
       format.json { render json: @important }
     end
   end
-  
-  # GET /tasks/1
-  # GET /tasks/1.json
-#  def show
-#    @user = User.find(params[:user_id])
-#    @task = Task.find(params[:id])
-#    @context = @task.context
-#
-#    respond_to do |format|
-#      format.html # show.html.erb
-#      format.json { render json: @task }
-#    end
-#  end
 
   # GET /tasks/new
   # GET /tasks/new.json
