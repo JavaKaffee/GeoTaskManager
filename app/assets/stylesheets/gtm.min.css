@@ -17,3 +17,8 @@
     background-image: url(images/admin.png);
     background-size: 18px 18px;
 }
+
+.ui-icon-taskman-list {
+    background-image: url(images/list.png);
+    background-size: 18px 18px;
+}

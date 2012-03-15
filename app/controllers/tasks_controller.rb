@@ -82,11 +82,11 @@ class TasksController < ApplicationController
   # GET /tasks/new
   # GET /tasks/new.json
   def new
-    @action = "Task erstellen"
+    @action = "Aufgabe erstellen"
     @user = User.find(params[:user_id])
     @task = Task.new
     @context = Context.find(params[:context_id])
-    @header = {"back" => user_context_path(@user,@context), "ajax" => true, "title" => "Task erstellen", "delete" => false}
+    @header = {"back" => user_context_path(@user,@context), "ajax" => true, "title" => "Neue Aufgabe", "delete" => false}
 
     respond_to do |format|
       format.html # new.html.erb
@@ -96,7 +96,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
-    @action = "Task ändern"
+    @action = "Aufgabe ändern"
     @user = User.find(params[:user_id])
     @task = Task.find(params[:id])
     @context = @task.context
@@ -112,7 +112,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to user_context_path(@user,@context), notice: 'Task wurde erstellt.' }
+        format.html { redirect_to user_context_path(@user,@context), notice: 'Aufgabe wurde erstellt.' }
         format.json { render json: @context, status: :created, location: @context }
       else
         format.html { redirect_to action: "new" }
@@ -130,7 +130,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
-        format.html { redirect_to user_context_path(@user,@context), notice: 'Task geändert.' }
+        format.html { redirect_to user_context_path(@user,@context), notice: 'Aufgabe geändert.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

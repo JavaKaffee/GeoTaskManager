@@ -1,7 +1,7 @@
 <div data-role="header" data-position="fixed" data-theme="<%= @user.layout %>">
   <div data-role="navbar">
     <ul id="navigation">
-      <li><%= link_to 'Listen', user_contexts_path, "data-icon" => "grid", "data-prefetch" => true, :class => @index == 0 ? "ui-btn-active ui-state-persist" : nil %></li>
+      <li><%= link_to 'Listen', user_contexts_path, "data-icon" => "taskman-list", "data-prefetch" => true, :class => @index == 0 ? "ui-btn-active ui-state-persist" : nil %></li>
       <li><%= link_to today_user_tasks_path, "data-icon" => "alert", "data-prefetch" => true, :class => @index == 1 ? "ui-btn-active ui-state-persist" : nil do %><span class="ui-li-count" style="color:red;text-shadow:whitesmoke 1px 1px 1px;text-align:center">&nbsp;<%= Task.all.count { |task| task.expiration >= DateTime.now && task.expiration <= @user.interval.minutes.from_now } %>&nbsp;</span>Heute<% end %></li>
       <li><%= link_to '7 Tage', week_user_tasks_path, "data-icon" => "forward", "data-prefetch" => true, :class => @index == 2 ? "ui-btn-active ui-state-persist" : nil %></li>
       <li><%= link_to 'Überfällig', overdue_user_tasks_path, "data-icon" => "back", "data-prefetch" => true, :class => @index == 3 ? "ui-btn-active ui-state-persist" : nil %></li>
