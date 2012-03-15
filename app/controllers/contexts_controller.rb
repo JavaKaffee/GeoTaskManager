@@ -37,7 +37,7 @@ class ContextsController < ApplicationController
     lat_r = @lat+0.01380000
     long_l = @long-0.01680000
     long_r = @long+0.01680000
-
+    # Finde den ersten Kontext, welcher innerhalb des Intervalls liegt
     @context = Context.find(:first, :conditions => { :user_id => @user, :latitude => lat_l..lat_r, :longitude => long_l..long_r })
       
     respond_to do |format|

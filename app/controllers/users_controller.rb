@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    # Diese Seite wird User-unabhängig
     @independent = true
     respond_to do |format|
       format.html # index.html.erb
@@ -13,15 +14,17 @@ class UsersController < ApplicationController
   
   def load
     name = params[:name]
+    # Finde den User per Namen (case-insensitive)
     @user = User.find(:first, :conditions => [ "lower(name) = ?", name.downcase ])
     @contexts = Context.find_all_by_user_id(@user)
-    
+    # Leite zum User weiter
     redirect_to user_contexts_path(@user)
   end
 
   # GET /users/new
   # GET /users/new.json
   def new
+    # Diese Seite ist User-unabhängig
     @independent = true
     @action = "Registrieren"
     @header = {"back" => root_path, "ajax" => true, "title" => "Registrieren"}
